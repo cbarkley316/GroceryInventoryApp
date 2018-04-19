@@ -32,3 +32,4 @@ I		4:14 - Instead I'll just make 3 textfields in that viewController: productNam
 		10:51 - Maybe I can solve this by making the tableCell the collectionview datasource/delegate. Then when i
                 create each cell I can compare it to the section label.
 4/19    2:26 -  Learning github in order to professionally present my chuck-norris app.
+	2:30 -	Continuing tests on github. THis entry was made on github.
