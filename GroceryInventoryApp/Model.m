@@ -13,14 +13,25 @@
 @implementation Model
 @synthesize homeSections, storeSections, productList, holderObject;
 
-- (void)createProduct:(NSString *)productName{
+- (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection{
     NSLog(@"Creating product");
     if (productList == nil){
         NSMutableArray *pl = [[NSMutableArray alloc] init];
         productList = pl;
     }
+    //home and store section lists are initialized by the default sections. These next 2 'if' statements are here just in case I change the code.
+    if (homeSections == nil){
+        NSMutableArray *hs = [[NSMutableArray alloc] init];
+        homeSections = hs;
+    }
+    if (storeSections == nil){
+        NSMutableArray *ss = [[NSMutableArray alloc] init];
+        storeSections = ss;
+    }
     productCell *p = [[productCell alloc] init];
     [p setProductName:productName];
+    [p setHomeSection:homeSection];
+    [p setStoreSection:storeSection];
     [productList addObject:p];
 }
 
@@ -30,6 +41,14 @@
         homeSections = hs;
     }
     [homeSections addObject:sectionName];
+}
+
+- (void)addStoreSection:(NSString *)sectionName{
+    if (storeSections == nil){
+        NSMutableArray *ss = [[NSMutableArray alloc] init];
+        storeSections = ss;
+    }
+    [storeSections addObject:sectionName];
 }
 
 - (void)dealloc{

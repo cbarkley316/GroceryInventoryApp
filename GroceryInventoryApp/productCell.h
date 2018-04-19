@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *amountNeededLbl;
 @property (strong, nonatomic) NSString *productName;
 @property (strong, nonatomic) NSString *homeSection;
+@property (strong, nonatomic) NSString *storeSection;
+
 
 -(void)updateCollectionCell:(NSString *)product amountNeeded:(int)amountNeeded;
 

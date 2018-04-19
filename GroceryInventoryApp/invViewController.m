@@ -26,7 +26,13 @@
     if (model == nil){
         model = [[Model alloc] init];
     }
+    //need one for default homeSection
     [model addHomeSection:@"Inventory"];
+    [model addHomeSection:@"Fridge"];
+    //need one for default storeSection
+    [model addStoreSection:@"Store"];
+    [model addStoreSection:@"Produce Section"];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -70,9 +76,14 @@
     //set up auto-sizing cells based on content
     tableCell.frame = tableView.bounds;
     [tableCell layoutIfNeeded];
-    [tableCell.collectionView reloadData];
-    tableCell.collectionViewHeight.constant = tableCell.collectionView.collectionViewLayout.collectionViewContentSize.height;
+    [tableCell.tableCollectionView reloadData];
+    tableCell.collectionViewHeight.constant = tableCell.tableCollectionView.collectionViewLayout.collectionViewContentSize.height;
+    //call tableviewCell methods
     [tableCell updateTableCell:[model.homeSections objectAtIndex:indexPath.row]];
+    [tableCell setModel:model];
+    if ([tableCell.sectionLbl.text  isEqual: @"Inventory"]){
+        
+    }
     return tableCell;
 }
 
@@ -87,7 +98,9 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     collCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"productCell"
                                                                   forIndexPath:indexPath];
+    //get this particular product
     productCell *p = [model.productList objectAtIndex:indexPath.row];
+    //update that particular product
     [collCell updateCollectionCell:[p productName] amountNeeded:0];
     return collCell;
 }

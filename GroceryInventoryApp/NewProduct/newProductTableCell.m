@@ -21,7 +21,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     //NSLog(@"%@", textField.text);
-    [model createProduct:textField.text];
+    //[model createProduct:textField.text];
     [textField resignFirstResponder];
     return YES;
 }

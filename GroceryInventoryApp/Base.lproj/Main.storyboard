@@ -102,8 +102,8 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="7to-KU-m5f"/>
-                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="ZcO-MV-nL4"/>
+                                                        <outlet property="dataSource" destination="x6X-hx-VFZ" id="h4V-nH-Fmj"/>
+                                                        <outlet property="delegate" destination="x6X-hx-VFZ" id="6cS-Rg-cKh"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -118,9 +118,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="collectionView" destination="tnk-c0-60x" id="X2p-Y5-WFM"/>
+                                            <outlet property="collView" destination="tnk-c0-60x" id="52n-1w-D0l"/>
                                             <outlet property="collectionViewHeight" destination="ygB-Zd-MKe" id="Gs2-fy-WAn"/>
                                             <outlet property="sectionLbl" destination="BLa-YN-z3t" id="IPP-Ue-HHV"/>
+                                            <outlet property="tableCollectionView" destination="tnk-c0-60x" id="X2p-Y5-WFM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -163,48 +164,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="145-Zn-9Do">
-                                <rect key="frame" x="0.0" y="40" width="375" height="561"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="createProductTableCell" rowHeight="148" id="65X-zW-TyN" customClass="newProductTableCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="148"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="65X-zW-TyN" id="ANG-eL-vra">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="147.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="62m-Kv-elM">
-                                                    <rect key="frame" x="15" y="58" width="345" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="65X-zW-TyN" id="heO-S7-0Ok"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="8Ss-dH-VyM" id="ahh-bj-XfK"/>
-                                    <outlet property="delegate" destination="8Ss-dH-VyM" id="3Sm-vh-lzf"/>
-                                </connections>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iY3-5L-BcP">
                                 <rect key="frame" x="261" y="631" width="98" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create">
                                     <color key="titleShadowColor" red="0.21567625930000001" green="0.70463452039999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createProductButton:" destination="8Ss-dH-VyM" eventType="touchUpInside" id="wok-r6-0YT"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ih-HC-k5T">
+                                <rect key="frame" x="16" y="117" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8Ss-dH-VyM" id="yDd-Or-sBZ"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVe-EL-DdZ">
+                                <rect key="frame" x="16" y="88" width="263" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Dt-xJ-E4h">
+                                <rect key="frame" x="0.0" y="177" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Ss-dH-VyM" id="Fwe-qa-r4G"/>
+                                    <outlet property="delegate" destination="8Ss-dH-VyM" id="F5x-RX-1Kc"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Section" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-bj-Q8v">
+                                <rect key="frame" x="16" y="166" width="263" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4b-YD-kIy">
+                                <rect key="frame" x="0.0" y="264" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Ss-dH-VyM" id="tXe-y7-UFB"/>
+                                    <outlet property="delegate" destination="8Ss-dH-VyM" id="bjs-71-gLl"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Store Section" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yh-QE-IlG">
+                                <rect key="frame" x="16" y="255" width="263" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="TFJ-vZ-A65"/>
                     </view>
+                    <connections>
+                        <outlet property="homeSectionPickerview" destination="3Dt-xJ-E4h" id="tUt-rx-XHh"/>
+                        <outlet property="productNameTextField" destination="6Ih-HC-k5T" id="dCP-HU-CL3"/>
+                        <outlet property="storeSectionPickerview" destination="d4b-YD-kIy" id="9uu-kZ-fyv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgk-Pv-naO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
