@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C120E705208940ED0027F844 /* ProjectLog2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C120E704208940ED0027F844 /* ProjectLog2.txt */; };
 		C1231CC020741709004B6A1D /* invTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1231CBF20741709004B6A1D /* invTableViewCell.m */; };
 		C1231CC320743015004B6A1D /* productCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1231CC220743015004B6A1D /* productCell.m */; };
 		C13297EA207FEE5100DA6E79 /* newProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C13297E9207FEE5100DA6E79 /* newProductVC.m */; };
@@ -21,7 +22,6 @@
 		C1A17C20206BDB4E005BAF1B /* GroceryInventoryAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C1F206BDB4E005BAF1B /* GroceryInventoryAppTests.m */; };
 		C1A17C2B206BDB4E005BAF1B /* GroceryInventoryAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C2A206BDB4E005BAF1B /* GroceryInventoryAppUITests.m */; };
 		C1B81048207F377E00189C3A /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B81047207F377E00189C3A /* Model.m */; };
-		C1FD304E2088042600207C30 /* Project Log.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C1FD304D2088042600207C30 /* Project Log.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C120E704208940ED0027F844 /* ProjectLog2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProjectLog2.txt; sourceTree = "<group>"; };
 		C1231CBE20741709004B6A1D /* invTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = invTableViewCell.h; sourceTree = "<group>"; };
 		C1231CBF20741709004B6A1D /* invTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = invTableViewCell.m; sourceTree = "<group>"; };
 		C1231CC120743015004B6A1D /* productCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = productCell.h; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		C1A17C2C206BDB4E005BAF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1B81046207F377E00189C3A /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		C1B81047207F377E00189C3A /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		C1FD304D2088042600207C30 /* Project Log.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Project Log.rtf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 		C1A17BF7206BDB4E005BAF1B = {
 			isa = PBXGroup;
 			children = (
-				C1FD304D2088042600207C30 /* Project Log.rtf */,
+				C120E704208940ED0027F844 /* ProjectLog2.txt */,
 				C1A17C02206BDB4E005BAF1B /* GroceryInventoryApp */,
 				C1A17C1E206BDB4E005BAF1B /* GroceryInventoryAppTests */,
 				C1A17C29206BDB4E005BAF1B /* GroceryInventoryAppUITests */,
@@ -277,7 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1FD304E2088042600207C30 /* Project Log.rtf in Resources */,
+				C120E705208940ED0027F844 /* ProjectLog2.txt in Resources */,
 				C1A17C13206BDB4E005BAF1B /* LaunchScreen.storyboard in Resources */,
 				C1A17C10206BDB4E005BAF1B /* Assets.xcassets in Resources */,
 				C1A17C0B206BDB4E005BAF1B /* Main.storyboard in Resources */,

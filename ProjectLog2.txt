@@ -1,0 +1,34 @@
+Project Log
+
+//4/18  2:48 - Make table cell auto resize based on content
+//      3:07 - remove unecessary nslogs
+//      3:13 - Previous tablerow autoresize was hardcoded. Try to use xcode's auto resize tool
+//      3:42 - Attempting this solution posten by Igor: https://stackoverflow.com/questions/24126708/uicollectionview-inside-a-uitableviewcell-dynamic-height?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa 
+	    3:50 - It worked!
+	    3:55 - make 'Create" button create the product rather than the 'enter' key. Also make the button return you to the previous page
+		4:12 - Ok. I want to change the system for newProductVC. I decided I don't need to be using a tableview. the 
+				reason I was was because I wanted to leave open the option of having an unknown number of textfields for 				an unknown number of stores. If I decide to add that feature I'll do it a different way. 
+I		4:14 - Instead I'll just make 3 textfields in that viewController: productName, homeLocation, storeLocation.
+		5:22 - I now have 1 textfield and 1 pickerview. I need to figure out how to have a 2nd pickerview on the same 
+				viecontroller.
+		5:57 - make 'Create" button create the product rather than the 'enter' key. Also make the button return you to 				the previous page
+		6:13 - still in previous step. I just finished adding arguments to creatProduct method in model. Now i need to 
+				use them in the newProductVC
+		6:17 X Now I need to sort the products into their respective sections. NSLOG in createProductButton isn't being 
+				called. 
+		9:36 - make "whatever is in the textfield" when the create button is pushed be assigned the name. So you don't 
+				have to press enter.
+		9:47 - right now the pickerviews don't have an option selected until the user taps it. This makes it look like it 
+				has an option selected by default but it doesn't. Options on how to fix this UX issue: 1) Find a way for 
+				the pickerview to select whatever it is currently displaying 2) Have another label above pickerview that 
+				notates what has been selected. Will display "Null" until something is selected 3) Find a way to display a 
+				"--" as the default, unselected option. 4) Use option 2
+		10:02 X Now I need to sort the products into their respective sections. 
+		10:11 - Make the create button bring you back to the previouspage
+		10:36 - Decide: do I want to keep this collectionview within a tableview thing? OR should I see if I can work 
+				with a single collectionview with multiple sections?
+		10:40 - Decision: Lets keep things how they are for now. Now I need to sort the products into their
+                respective sections. Can I do that using Model's section lists? Nope, dont have those.
+		10:51 - Maybe I can solve this by making the tableCell the collectionview datasource/delegate. Then when i
+                create each cell I can compare it to the section label.
+4/19    2:26 -  Learning github in order to professionally present my chuck-norris app.
