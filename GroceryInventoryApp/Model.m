@@ -11,10 +11,10 @@
 #import "invViewController.h"
 
 @implementation Model
-@synthesize homeSections, storeSections, productList, holderObject;
+@synthesize homeSections, storeSections, productList;
 
 - (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection{
-    NSLog(@"Creating product");
+    //NSLog(@"Creating product");
     if (productList == nil){
         NSMutableArray *pl = [[NSMutableArray alloc] init];
         productList = pl;
@@ -36,6 +36,7 @@
 }
 
 - (void)addHomeSection:(NSString *)sectionName{
+    ////Make an array\/
     if (homeSections == nil){
         NSMutableArray *hs = [[NSMutableArray alloc] init];
         homeSections = hs;

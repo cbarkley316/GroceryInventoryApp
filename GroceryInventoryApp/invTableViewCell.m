@@ -10,36 +10,62 @@
 #import "invTableViewCell.h"
 #import "productCell.h"
 #import "Model.h"
+#import "editProductViewController.h"
+#import "invViewController.h"
 
 @implementation invTableViewCell
 
-@synthesize sectionLbl, tableCollectionView, model, collCell;
+@synthesize sectionLbl, invTableCollectionView, editTableCollectionView, model, editViewController, collCell, sectionProducts;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
 }
 
-- (void)updateTableCell:(nonnull NSString *)string{
+- (void)updateTableCell:(nonnull NSString *)string{//} sectionArray:(NSMutableArray *_Nullable)sectionArray{
     self.sectionLbl.text = string;
-    [tableCollectionView reloadData];
+    if (sectionProducts == nil){
+        NSMutableArray *sp = [[NSMutableArray alloc] init];
+        sectionProducts = sp;
+    }
+    [sectionProducts removeAllObjects];//Clear the sectionProducts array
+    for (productCell *p in model.productList){//and fill it up again
+        if(string == p.homeSection){
+            [sectionProducts addObject:p];
+        }
+    }
 }
 
 #pragma mark - CollectionView stuff
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return model.productList.count;
+    NSLog(@"ColletionView numberOfItemsInSection called");
+    return sectionProducts.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"This collectionview cellForItemAtIndexPath got called");
     collCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"productCell"
                                                          forIndexPath:indexPath];
-    //get this particular product
-    productCell *p = [model.productList objectAtIndex:indexPath.row];
-    //update that particular product
-    [collCell updateCollectionCell:[p productName] amountNeeded:0];
-    return collCell;
+        productCell *p = [sectionProducts objectAtIndex:indexPath.row];//get this particular product
+        //update that particular product
+        [collCell updateCollectionCell:[p productName] amountNeeded:[p amountNeeded]];
+        return collCell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+////This code prints selected productName
+    productCell *selectedProduct = [sectionProducts objectAtIndex:indexPath.row];
+//    NSString *selectedProductName = selectedProduct.productName;
+//    NSLog(@"%@ tapped", selectedProductName);
+    if (collectionView == invTableCollectionView){
+        selectedProduct.amountNeeded += 1;
+        [collectionView reloadData];
+    }
+    if (collectionView == editTableCollectionView){
+        [editViewController setCollectionSelectedProduct:selectedProduct];
+        [editViewController performSegueWithIdentifier:@"editToEditProduct" sender:self];
+    }
+}
+
 
 
 @end

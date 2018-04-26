@@ -25,10 +25,138 @@ I		4:14 - Instead I'll just make 3 textfields in that viewController: productNam
 				"--" as the default, unselected option. 4) Use option 2
 		10:02 X Now I need to sort the products into their respective sections. 
 		10:11 - Make the create button bring you back to the previouspage
-		10:36 - Decide: do I want to keep this collectionview within a tableview thing? OR should I see if I can work 
-				with a single collectionview with multiple sections?
+		10:36 - Decide: do I want to keep this collectionview within a tableview thing? OR should I see if I can
+                work with a single collectionview with multiple sections?
 		10:40 - Decision: Lets keep things how they are for now. Now I need to sort the products into their
                 respective sections. Can I do that using Model's section lists? Nope, dont have those.
 		10:51 - Maybe I can solve this by making the tableCell the collectionview datasource/delegate. Then when i
                 create each cell I can compare it to the section label.
 4/19    2:26 -  Learning github in order to professionally present my chuck-norris app.
+        7:15 -  Back to sorting the products into their respective sections.
+        7:30 -  Progress! I made the tableview cell be the delegate/datasource for the collection view. Now lets
+                see if we can make each cell take care of its own sorting.
+        8:02 -  I dont think the Model needs to hold arrays of items in sections. I think it's ok for the
+                tableview cells to hold those arrays. The model is still holding the source information. I'll have  the updateTableCell method create an array, if needed, and then make a for loop with an if statement that checks every product's homesection and compares it with the string argument of the method.
+        8:51 -  I set up an array within the tableCell and filled it with the appropriate products and it didn't work. 1) Test to make sure that the array is actually getting filled 2) I'm pretty sure the collection view is reloading data at the wrong time relative to the arrays being made.
+        9:00 -  It's sorting...but it has 2 bad bugs. 1) There seems to be a double-up on the arrays. 2) they don't show up until the second go around. To fix 1: something's wrong with my logic in creating the arrays. To fix 2. Most likely the reload Data problem i mentioned before.
+        9:05 -  I want to fix bug 2 first cuz i want to see what I'm working with. I am temporarily reverting back to a previous way by having the collection view draw from the product list. Then switch back to sectionProductList.
+        9:25 - I just realized that the collectionview methods in invTableViewCell aren't even being called when the app first loads. Even tho there are items in their arrays.
+        9:36 - I fixed bug 2 but I don't know why it worked. What i did was in the cellForRowAtIndexPath method in invViewController I moved the two "call Cell methods" before the "auto-resizing" methods rather than after. First figure out why it worked then fix bug number 1.
+9:41 -  I think i figured out why the solution worked: its all about passing the model object to the tableCell (and therefore the collectionCell). The autoResize steps depend on the collectionViews loading their data first. But if they don't have the model yet, then thay have no data. Now I'll fix bug number 1. First i need to revert back to using the sectionProductArrays.
+9:48 -  Ok, I think the model needs to hold the sectionProducts arrays. Because the collectionViews are getting made first but the tableviews hold their content the collection views dont get their content until the next go around. Lets figure out a way to have the model make the sectionProducts arrays.
+10:00 -  I think I have a plan to do that. When a home or store section is made (one of each is made by default when the view loads) I need to make a dictionary that only has one key and one value: the key will be the name of the section and the value will be an array. Then, Whenever a product is created it's sections will be compared with the key of the dictionaries.
+10:24 - Looks like I got the model to create a dictionary for each section.
+10:46 - I just changed invViewController's tableview AND newProductVC's pickerView (just the homeSection one so far) to read a dictionary rather than an array. Seems to work. Now lets do the same thing for the store section stuff.
+10:53 X Done. Now use the key in the dictionaries to sort the products.
+11:02 - Actually first, when a product is created add it to the corisponding dictionary's array.
+11:17 - Done. Now I just need to use those dictionary arrays to sort the products.
+
+4/20
+9:02    - In tableView collectionCount I need to count the number of items in the array that's within the appropriate dictionary which is in the homeSections array. By looping through the top array, comparing each key with the section label text, once the key is found I can count the corrisponding array within that key.
+9:34    - Now I'll do it.
+10:10   - I set up the sectionProducts array, now use it
+11:53   - Ok, so I think there's a problem with the load order again. The cellForItemAtIndexPath method isn't even being called at first but the numberOfItemsInSection method is...
+12:17   - Check the NSlogs, the call order of the collectionview methods is informative. I want to try to pull the info directly from Model rather than creating a new array.
+4:08    - Find out why model.productsList works but sectionProducts does not.
+5:15    - CHecking to see if the arrays within the dictionaries are being filled
+5:24    - Test worked: the array within the dictionary is being filled. Can I use this code to sort?
+
+4/21
+12:33   - Page two has an array index number being called that is out of bounds and called an error only if the amount of items in storeSections and homeSections was not the same.
+12:46   - I fixed it. The problem was the pickerView titleForRow method. I fixed it by moving the section dictionary variable definitions from before the 'if' statements to inside the 'if' statements. Why did this fix it? Well, getting both the dictionaries before the 'if' statements meant accessing an index of the sections array with the 'row' arguments. That same "row" number would be used on both arrays whether we were working on their pickerView or not. So when there was a mismatch it would call an error.
+1:06    - Back to sorting.
+1:28    - While trying to sort I found a new problem that might be related to the sorting probelm. There is an array indexing problem in displaying the collection views
+1:36    - Ok, dummy products are getting sorted correctly but I can't add new products. When I am using the model.product list as number of items and cellforItem i CAN ADD new products. Why?
+1:43    - Not sure if it will work but I'm going to try something. I want the invViewController to pass each tableCell it's corrisponding array and store it in an iVar.
+1:56    - Didnt work...
+3:41    - Again, why are the dummy products getting displayed but not the new products?
+3:56    - nslog every tablevieww and collectionview method to learn the call order
+5:27    - Again, why are the dummy products getting displayed but not the new products? AND why does the model.product list work but not the sorted arrays? Lets look at the latter first
+5:37    - I may need to reconsider having the model contain the section arrays and go back to trying the tableviewCells holding their own arrays. Refer to log entry 4/19 9:48 for more details.
+9:52    - Before I try again at having the tableCells create the sectionProduct arrays I want to ask again: why does model.productlist work but not section list? Lets list some differences. Model.list is a simple Array, homeSections is like the diagram below.
+        Array(
+            Dictionary{sectionName}(
+                Array(
+                    Product1
+                    Product2
+                )
+            )
+        )
+10:08   - Can i turn my homeSections into a simple array?
+11:48   - two ideas: 1) pass each tableCell's indexNumber to its collectionView and use this index number to compare with that index number of the homeSections array 2) use invViewController as collectionView dataSource/delegate and try out using the Array(Dictionaries(Arrays)).
+4/22    - I want to try solution 2 first. Need to figure out a way to pass the correct dictionary arrays.
+9:43a   - Ok, im not gonna have the VC be the Datasource/delegate yet because I can't think of a way to access specific collectionViews. Gonna try passing the tableCell's index number from the ViewController to each table Cell to use on the collectioView.
+9:50a   - Is the problem simply a reloading issue? Gonna try solution 1) from the 11:48 entry above and then i'll try solution 3): find a reloading issue.
+9:57    - In thinking about how to do option 1) from 11:48 entry I came up with two new possible solutions. A) Make model's homeSections an Array of arrays and have each tableCell pull the correct array by using the row's index number. B) Make homeSections simply an array of strings and then create local-variable arrays in the collectionView methods, loop through each homeSection item, and compare with the sectionLbl of the tableCell.
+11:46   - I'm going to start with option A). I plan on just commenting out the Array(Dictionaray(Array)) format in case i want to use it later
+12:16   - Hmm, with the array(array), how do I sort the products into them? Lets try option B) and come back A) if needed.
+12:26   - Looks like index Paths are the answer. Read about them.
+12:29   - Ok, I think I need to add another iVar to productCell that will hold its index Path.
+2:31    - Ok, I wanna do option B) but first how about this: could I make homeSections simply a dictionary and then get an array of all values with the sectionName's key?
+5:03    - Lets play through that homeSections as dictionary of arrays idea
+5:27    - Here's how that would work. 1) when a homesection is made it will create an array and add it to the homeSectionsDictionary wth the sectionName as the key AND add the sectionName string to the homeSectionsArray 2) The tableView's row count will be the number in the homeSectionsArray 3) the cellForRowAtIndex will simply send that index's value (section name) to the updateCell method of the tableViewCell class 4) In tableviewCell, either in one or both of the collectionVIew methods or in updateCell method, it will get the sectionLbl as a string, use that string as the key on the model.homeSections dictionary, and then get an array of all the values with that key. Use that array for collectionView
+4/23
+1:28    - Wait a minute! In the tableViewCell cant I just run through the model.productList and compare each p.homeSection with the sectionLbl, store it in an array, and just use that array on the collectionViews?
+1:31    - Lets play that out. productList is already made. 1) homeSecitions is simply an array of strings. 2) inVC gives tableViewCells the appropriate sectionLbls. 3) In tableviewCell, either in one or both of the collectionVIew methods OR in updateCell method, it will get the sectionLbl as a string, loop through model.productList and compare each p.homeSection to see if it's equal with the sectionLbl string, and store that product in the sectionProducts array. 4) Use that array for collectionView.
+1:45    - for step 3 we're gonna try first doing it in updateTableCell method.
+1:53    - Dummy products didn't even show up. When testing to see if theyd show up after adding a product the second page made it crash. It's because newProductVC picker views was using dictionary instead of simple arrays of strings. Fixing that first, then will test to see if dummy products show up after adding one.
+1:58    - Fixed nreProduct page and no products are showing up. Maybe it's because sectionProducts isn't getting allocated
+2:06    - That fixed it!!!! It's even sorrting!!!! Only bug now is that each sectionProducts array is doubling up on itself each time a product is added.
+2:10    - To fix this bug, in updateTableCell I need to not only check if the sectionLbl string is equal to p.homeSection but also check to see if that product is already in the list.
+2:32    - Lol now nothing is being displayed, dummy or new products. The 'break' statment isn't stopping the top loop. So i think I just did it wrong
+2:45    - Now dummy products show up but adding a new product crashes the app. Log says "an array was mutated while being enumerated."
+2:55    - I disabled the viewWillAppear method in invViewController and it doesnt crash. But because that method reloads the deta the new item is not displayed. I think the problem has something to do with when the tableVIew is reloaded. Can I reload the tableView from the "create" button method?
+3:12    - Didn't work cuz I sent the reload selector diresctly to invViewController rather than invViewController.invTableView and it did't recognize "reloadData". Is there a way to send "reloadData" directly to invTableView?
+4:03    - So i passed the invTableView to newProductVC in order to reload its data from the "create" button but there still is "an array was mutated while being enumerated."
+4:07    - GOnna do a test: gonna add a button that reloads the table data. Then we'll see if the product being added to productList at the same time as table data being reloaded is the problem.
+4:11    - same error occured. That means the problem is inherent in sorting system. WHy then doesn't the error occur on the dummy products? Let'sfind the difference
+4:26    - The problem might be cause by the fact that the collectionViews are reloading before the teableviews. I'm going to try to reload the collectionviews from update TableCell.
+4:29    - Didn't work. Gonna add table and collectionView method nsLogs to get more info
+4:32    - Oh! just reloading the data even without adding anything broke it.
+4:54    - Starting over at todays 2:06 entry, I'm going to add a bool variable that says whether or not the product is already in sectionProducts. Then I can compare if(string == p.homeSection && !isInSectionProducts)
+5:09    - I've done it.     FInally      Lets do some clean up
+5:21    - Time to make the "add homesection" button
+5:45    - I need to pass the model object from invViewController to addHomeSectionViewController
+11:43   - It works :) Exactly as it should. Now, what next? Options: 1) Make a way to edit (delete or change) products 2) Make a way to edit (delete or change) sections 3) Add feature: tap product to add "amountNeeded" number 4) Start making shopping page
+11:51   - Gonna start with option 3.
+12:03a  - I got it to nsLog which product is being tapped! That was far easier than expected! Now I just need it to add 1 to the "amountNeeded" ivar in the product and reload the data.
+12:19a  - I'm going to have tapping the cell add to "amountNeeded", AND reload the data. Do I need to make a "realoadTheData" method?
+12:25a  - I did it! Tapping the cell adds 1 to the "amountNeeded" label. Now, on to option 1) from the 11:43 entry.
+12:37a  - To add editing functionality I think I want to replace the "add Section" button with an "edit" button that will take you to a page that looks pretty much the same. But then when tapping a product it will open yet another page that you can use to edit the product AND it will have an "Add Section" button.
+
+4/24
+10:56   - I set up interface builder. I think i need to use exact same code except for productCell?
+12:27   - I copied and pasted the invViewController in interface builder
+12:44   - Ok! I got it so that the edit>Addsection functionality works. Now make it so when the you click a cell on the edit page it takes you to a "editProduct" page.
+1:56    - Can I do that by creating two outlets for each viewController?
+2:07    - I added an outlet in invViewController for specifically the "editTableView". Use this in an 'if' statement for the "was tapped" method can check on it. Maybe collectionview needs outlet.
+3:10    - I made new class for "editProductVC" and new VC in interface builder and linked the two. now build it. send the selected product to the VC.
+4:23    - Do so by using segues
+4:33    - Not sure how to access the viewController to access segue from the collecitionView.
+10:08   - Tapping cell brings to editProduct page. Now make it work
+
+4/25
+7:29    - I need to figure out how to send the "selected prodct" to the EditProductVC. Is there a way beside through the segway? Get VC outlet. Cant.
+7:54    - turns out in IB i can control-drag from cell to VC. Now I think i can use "prepareforsegue" in invVC.
+8:35    - duh, I don't know how to get the selected product to invViewController. Wait, can I have productCell be the datasource of the VC? I don't think so cuz it's not a UIViewController...right?
+9:55    - I want to take editViewController and send it another iVar of selected product. There's gotta be a more efficient way.
+contonue
+12:35   - I am currently making IBOutlets in edtproductVC. Then I can use the selected product to gather information and display it in the "viewWillAppear" method. Then I can use the field and pickerviews to change that info about the selected product.
+12:42   - The editproductVC needs the model object. I can send it with the selected product
+12:54   - see whats it's doing now. Continue with labels then use this page to change the product info.
+2:02    - Uh oh, having a product move sections keeps it in both. Probably because the secitonProducts ddeosn;t change
+2:48    - I really think the problem is because the sectionProducts array in each invTableViewCell. It's holding on to the
+3:03    - I think I've done it! I did it by clearing the sectionProducts array at the beggining of each tableCell load in invTableCell. To do now: 1) That solution made my other sorting solution not needed so there's some extra unecessary code. clean it up. 2) Make save button bring you back to inventory screen. 3) Add adjustable "amount needed" field in editProduct screen. 4) add textfield functionality
+4:04    - Number 1 done, on the number 2.
+4:12    - Number 2 done, but I descovered that in the edit screen when you tap on an item it brings you to the editProduct page but also adds 1 to the "amountneeded" variable. I need to check how the invTableCollectionView and editTableCollectionView are being defined.
+4:24    - ok, in IB, in the collectionView in the Edit page, there were two referencing outlets: invTableCollection and editTableCollection. I deleted the invTableCollection. Now no collectionCells are showing up on the edit page.
+4:36    - I'm gonna try changed the identifier for the tableViewCell in the edit page. Nvmnd.
+9:27    - Let's try simply rebuilding the sorting system for the edit page
+9:59    - I'm thinking I want to redesign the edit page. How about we have an edit button on the inventory page that, when pressed, a) makes it so that when you tap a product you go to the editProduct page b) changes the "createProduct" button to the "addSection" button c) changes some uicolor stuff to signify change in function. That would invovle adding a BOOL variable that only be true when the button is pressed.
+
+
+
+
+
+
+

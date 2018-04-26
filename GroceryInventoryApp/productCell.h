@@ -15,8 +15,9 @@
 @property (strong, nonatomic) NSString *productName;
 @property (strong, nonatomic) NSString *homeSection;
 @property (strong, nonatomic) NSString *storeSection;
+@property NSInteger amountNeeded;
 
 
--(void)updateCollectionCell:(NSString *)product amountNeeded:(int)amountNeeded;
+-(void)updateCollectionCell:(NSString *)product amountNeeded:(NSInteger)amountNeeded;
 
 @end

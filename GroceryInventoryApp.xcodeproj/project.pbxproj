@@ -11,7 +11,6 @@
 		C1231CC020741709004B6A1D /* invTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1231CBF20741709004B6A1D /* invTableViewCell.m */; };
 		C1231CC320743015004B6A1D /* productCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1231CC220743015004B6A1D /* productCell.m */; };
 		C13297EA207FEE5100DA6E79 /* newProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C13297E9207FEE5100DA6E79 /* newProductVC.m */; };
-		C13297EE207FFE1400DA6E79 /* newProductTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C13297ED207FFE1400DA6E79 /* newProductTableCell.m */; };
 		C1A17C05206BDB4E005BAF1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C04206BDB4E005BAF1B /* AppDelegate.m */; };
 		C1A17C08206BDB4E005BAF1B /* invViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C07206BDB4E005BAF1B /* invViewController.m */; };
 		C1A17C0B206BDB4E005BAF1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1A17C09206BDB4E005BAF1B /* Main.storyboard */; };
@@ -22,6 +21,8 @@
 		C1A17C20206BDB4E005BAF1B /* GroceryInventoryAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C1F206BDB4E005BAF1B /* GroceryInventoryAppTests.m */; };
 		C1A17C2B206BDB4E005BAF1B /* GroceryInventoryAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C2A206BDB4E005BAF1B /* GroceryInventoryAppUITests.m */; };
 		C1B81048207F377E00189C3A /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B81047207F377E00189C3A /* Model.m */; };
+		C1C20918208EB2E200709C62 /* addHomeSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C20917208EB2E200709C62 /* addHomeSectionViewController.m */; };
+		C1D30C68208FE29200662043 /* editProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D30C67208FE29200662043 /* editProductViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +50,6 @@
 		C1231CC220743015004B6A1D /* productCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = productCell.m; sourceTree = "<group>"; };
 		C13297E8207FEE5100DA6E79 /* newProductVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = newProductVC.h; sourceTree = "<group>"; };
 		C13297E9207FEE5100DA6E79 /* newProductVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = newProductVC.m; sourceTree = "<group>"; };
-		C13297EC207FFE1400DA6E79 /* newProductTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = newProductTableCell.h; sourceTree = "<group>"; };
-		C13297ED207FFE1400DA6E79 /* newProductTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = newProductTableCell.m; sourceTree = "<group>"; };
 		C1A17C00206BDB4E005BAF1B /* GroceryInventoryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryInventoryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A17C03206BDB4E005BAF1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C1A17C04206BDB4E005BAF1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -70,6 +69,10 @@
 		C1A17C2C206BDB4E005BAF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1B81046207F377E00189C3A /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		C1B81047207F377E00189C3A /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		C1C20916208EB2E200709C62 /* addHomeSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = addHomeSectionViewController.h; sourceTree = "<group>"; };
+		C1C20917208EB2E200709C62 /* addHomeSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = addHomeSectionViewController.m; sourceTree = "<group>"; };
+		C1D30C66208FE29200662043 /* editProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = editProductViewController.h; sourceTree = "<group>"; };
+		C1D30C67208FE29200662043 /* editProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = editProductViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +105,6 @@
 			children = (
 				C13297E8207FEE5100DA6E79 /* newProductVC.h */,
 				C13297E9207FEE5100DA6E79 /* newProductVC.m */,
-				C13297EC207FFE1400DA6E79 /* newProductTableCell.h */,
-				C13297ED207FFE1400DA6E79 /* newProductTableCell.m */,
 			);
 			path = NewProduct;
 			sourceTree = "<group>";
@@ -149,6 +150,8 @@
 				C1B81047207F377E00189C3A /* Model.m */,
 				C1A17C09206BDB4E005BAF1B /* Main.storyboard */,
 				C13297EB207FF50700DA6E79 /* NewProduct */,
+				C1C20915208EB27300709C62 /* AddHomeSection */,
+				C1D30C65208FE24C00662043 /* Edit Product */,
 			);
 			path = GroceryInventoryApp;
 			sourceTree = "<group>";
@@ -169,6 +172,24 @@
 				C1A17C2C206BDB4E005BAF1B /* Info.plist */,
 			);
 			path = GroceryInventoryAppUITests;
+			sourceTree = "<group>";
+		};
+		C1C20915208EB27300709C62 /* AddHomeSection */ = {
+			isa = PBXGroup;
+			children = (
+				C1C20916208EB2E200709C62 /* addHomeSectionViewController.h */,
+				C1C20917208EB2E200709C62 /* addHomeSectionViewController.m */,
+			);
+			path = AddHomeSection;
+			sourceTree = "<group>";
+		};
+		C1D30C65208FE24C00662043 /* Edit Product */ = {
+			isa = PBXGroup;
+			children = (
+				C1D30C66208FE29200662043 /* editProductViewController.h */,
+				C1D30C67208FE29200662043 /* editProductViewController.m */,
+			);
+			path = "Edit Product";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,11 +328,12 @@
 			files = (
 				C1A17C08206BDB4E005BAF1B /* invViewController.m in Sources */,
 				C1A17C05206BDB4E005BAF1B /* AppDelegate.m in Sources */,
-				C13297EE207FFE1400DA6E79 /* newProductTableCell.m in Sources */,
 				C13297EA207FEE5100DA6E79 /* newProductVC.m in Sources */,
 				C1A17C16206BDB4E005BAF1B /* main.m in Sources */,
+				C1D30C68208FE29200662043 /* editProductViewController.m in Sources */,
 				C1231CC320743015004B6A1D /* productCell.m in Sources */,
 				C1B81048207F377E00189C3A /* Model.m in Sources */,
+				C1C20918208EB2E200709C62 /* addHomeSectionViewController.m in Sources */,
 				C1A17C0E206BDB4E005BAF1B /* GroceryInventoryApp.xcdatamodeld in Sources */,
 				C1231CC020741709004B6A1D /* invTableViewCell.m in Sources */,
 			);

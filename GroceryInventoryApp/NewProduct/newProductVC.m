@@ -7,7 +7,6 @@
 //
 
 #import "newProductVC.h"
-#import "newProductTableCell.h"
 #import "Model.h"
 
 @interface newProductVC ()
@@ -20,14 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //set the defaults
+    //set the defaults of the pickerViews
     [self setHomeSection:[model.homeSections objectAtIndex:0]];
     [self setStoreSection:[model.storeSections objectAtIndex:0]];
 }
 
 - (IBAction)createProductButton:(id)sender {
     [self setProductName:productNameTextField.text];
-    NSLog(@"\nProductName:%@\nhomeSection:%@\nstoreSection:%@", productName, homeSection, storeSection);
+    //NSLog(@"\nProductName:%@\nhomeSection:%@\nstoreSection:%@", productName, homeSection, storeSection);
     [model createProduct:productName
              homeSection:homeSection
             storeSection:storeSection];
@@ -50,23 +49,28 @@
     return 1;
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    NSString *rowTitle;
-    if (pickerView == homeSectionPickerview){
-        rowTitle = [model.homeSections objectAtIndex:row];
-    } else if (pickerView == storeSectionPickerview){
-        rowTitle = [model.storeSections objectAtIndex:row];
-    }
-    return rowTitle;
-}
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     NSInteger rowCount = 0;
     if (pickerView == homeSectionPickerview){
         rowCount = model.homeSections.count;
+        return rowCount;
     } else if (pickerView == storeSectionPickerview){
         rowCount = model.storeSections.count;
+        return rowCount;
     }
-    return rowCount;
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    NSString *rowTitle;
+    if (pickerView == homeSectionPickerview){
+        rowTitle = [model.homeSections objectAtIndex:row];//return the key as a string
+        return rowTitle;
+    } else if (pickerView == storeSectionPickerview){
+        rowTitle = [model.storeSections objectAtIndex:row];;//return the key as a string
+        return rowTitle;
+    }
+    return 0;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -77,22 +81,22 @@
     }
 }
 
-#pragma mark - TableView stuff
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section{
-    return 1;
-}
-
-- (UITableViewCell*)tableView:(UITableView *)tableView
-        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    tableView.rowHeight = 95;
-    tableView.estimatedRowHeight = 44.0;
-    productTableCell = [tableView dequeueReusableCellWithIdentifier:@"createProductTableCell"
-                                                forIndexPath:indexPath];
-    [productTableCell setModel:model];
-    [productTableCell updateTableCell];
-    return productTableCell;
-}
+//#pragma mark - TableView stuff
+//
+//- (NSInteger)tableView:(UITableView *)tableView
+// numberOfRowsInSection:(NSInteger)section{
+//    return 1;
+//}
+//
+//- (UITableViewCell*)tableView:(UITableView *)tableView
+//        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    tableView.rowHeight = 95;
+//    tableView.estimatedRowHeight = 44.0;
+//    productTableCell = [tableView dequeueReusableCellWithIdentifier:@"createProductTableCell"
+//                                                forIndexPath:indexPath];
+//    [productTableCell setModel:model];
+//    [productTableCell updateTableCell];
+//    return productTableCell;
+//}
 
 @end

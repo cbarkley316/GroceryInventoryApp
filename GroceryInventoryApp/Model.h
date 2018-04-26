@@ -14,7 +14,6 @@
 @property (strong) NSMutableArray *homeSections;
 @property (strong) NSMutableArray *storeSections;
 @property (strong) NSMutableArray *productList;
-@property (weak) invViewController *holderObject;
 
 - (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection;
 - (void)addHomeSection:(NSString *)sectionName;

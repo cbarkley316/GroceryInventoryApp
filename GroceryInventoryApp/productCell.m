@@ -10,17 +10,15 @@
 
 @implementation productCell
 
-@synthesize productNameLbl, amountNeededLbl, productName, homeSection;
+@synthesize productNameLbl, amountNeededLbl, amountNeeded, productName, homeSection;
 
 -(void)awakeFromNib{
     [super awakeFromNib];
 }
 
--(void)updateCollectionCell:(NSString *)product
-               amountNeeded:(int)amountNeeded{
+-(void)updateCollectionCell:(NSString *)product amountNeeded:(NSInteger)amountNeeded{
     self.productNameLbl.text = product;
     self.amountNeededLbl.text = [NSString stringWithFormat: @"%ld", (long)amountNeeded];//convert int to string
-
 }
 
 

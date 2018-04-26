@@ -13,17 +13,13 @@
 @class Model;
 
 
-@interface invViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface invViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong) NSMutableArray *sectionList;
-@property (strong) NSMutableArray *fridgeProducts;
 @property (strong) invTableViewCell *tableCell;
-@property (strong) productCell *collCell;
 @property (strong, nonatomic) Model *model;
-@property int tableRowHeight;
 @property (strong, nonatomic) IBOutlet UITableView *invTableView;
-
-- (void)reloadTheData;
+@property (strong, nonatomic) IBOutlet UITableView *editTableView;
+@property (weak) productCell *collectionSelectedProduct;
 
 @end
 
