@@ -11,6 +11,7 @@
 
 @interface Model : NSObject
 
+@property BOOL invEditWasPushed;
 @property (strong) NSMutableArray *homeSections;
 @property (strong) NSMutableArray *storeSections;
 @property (strong) NSMutableArray *productList;

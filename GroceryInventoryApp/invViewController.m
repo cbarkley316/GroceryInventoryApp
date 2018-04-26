@@ -22,13 +22,14 @@
 
 @implementation invViewController
 
-@synthesize invTableView, editTableView, tableCell, model, collectionSelectedProduct;
+@synthesize invTableView, tableCell, model, collectionSelectedProduct;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (model == nil){
         model = [[Model alloc] init];
     }
+    [model setInvEditWasPushed:NO];
     ////need one for default homeSection
     if (model.homeSections == nil){
         [model addHomeSection:@"Inventory"];
@@ -46,17 +47,14 @@
         newProductVC *vc = [segue destinationViewController];
         [vc setModel:model];
     }
+    
     if([[segue identifier] isEqualToString:@"editToAddSection"]){
         // Get reference to the destination view controller
         addHomeSectionViewController *vc = [segue destinationViewController];
         [vc setModel:model];
     }
-    if([[segue identifier] isEqualToString:@"invToEdit"]){
-        // Get reference to the destination view controller
-        invViewController *vc = [segue destinationViewController];
-        [vc setModel:model];
-    }
-    if([[segue identifier] isEqualToString:@"editToEditProduct"]){
+    
+    if([[segue identifier] isEqualToString:@"invToEditProduct"]){
         editProductViewController *vc = [segue destinationViewController];
         [vc setSelectedProduct:collectionSelectedProduct];
         [vc setModel:model];
@@ -69,11 +67,11 @@
     [invTableView performSelectorOnMainThread:reloadSelector
                                                 withObject:nil
                                              waitUntilDone:YES];
-    [editTableView performSelectorOnMainThread:reloadSelector
-                                   withObject:nil
-                                waitUntilDone:YES];
 }
 
+- (IBAction)editButton:(id)sender {
+    [model setInvEditWasPushed:YES];
+}
 
 - (void)dealloc{
     NSLog(@"ViewController Dealocated");
@@ -93,13 +91,12 @@
                                                       forIndexPath:indexPath];
     //call tableviewCell methods
     [tableCell setModel:model];
-    [tableCell setEditViewController:self];//send the tableCell this object so it can be used to perform segue
+    [tableCell setInvViewController:self];
     [tableCell updateTableCell:[model.homeSections objectAtIndex:indexPath.row]];//give the section as a string
     //set up auto-sizing cells based on content//PRETTY SURE THIS MAKES THE COLLECTIONVIEWS LOAD FIRST
     tableCell.frame = tableView.bounds;
     [tableCell layoutIfNeeded];
     [tableCell.invTableCollectionView reloadData];
-    [tableCell.editTableCollectionView reloadData];
     tableCell.collectionViewHeight.constant = tableCell.invTableCollectionView.collectionViewLayout.collectionViewContentSize.height;
     return tableCell;
 }

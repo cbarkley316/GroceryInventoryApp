@@ -32,6 +32,7 @@ I		4:14 - Instead I'll just make 3 textfields in that viewController: productNam
 		10:51 - Maybe I can solve this by making the tableCell the collectionview datasource/delegate. Then when i
                 create each cell I can compare it to the section label.
 4/19    2:26 -  Learning github in order to professionally present my chuck-norris app.
+<<<<<<< HEAD
         7:15 -  Back to sorting the products into their respective sections.
         7:30 -  Progress! I made the tableview cell be the delegate/datasource for the collection view. Now lets
                 see if we can make each cell take care of its own sorting.
@@ -160,3 +161,6 @@ contonue
 
 
 
+=======
+	2:30 -	Continuing tests on github. THis entry was made on github.
+>>>>>>> c56689af1bcbfce82aa7c85757e1af3e4c98202b

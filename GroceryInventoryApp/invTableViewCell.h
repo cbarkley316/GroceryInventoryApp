@@ -14,11 +14,10 @@
 @interface invTableViewCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak) Model * _Nullable model;
-@property (weak) invViewController * _Nullable editViewController;
 @property (strong) productCell * _Nullable collCell;
+@property (weak) invViewController *invViewController;
 @property (strong, nonatomic) IBOutlet UILabel * _Nonnull sectionLbl;
 @property (strong, nonatomic) IBOutlet UICollectionView * _Nonnull invTableCollectionView;
-@property (strong, nonatomic) IBOutlet UICollectionView * _Nonnull editTableCollectionView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint * _Nullable collectionViewHeight;
 @property (strong, nonatomic) NSMutableArray * _Nullable sectionProducts;
 

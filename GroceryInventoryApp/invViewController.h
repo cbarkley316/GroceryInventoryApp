@@ -18,8 +18,9 @@
 @property (strong) invTableViewCell *tableCell;
 @property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) IBOutlet UITableView *invTableView;
-@property (strong, nonatomic) IBOutlet UITableView *editTableView;
 @property (weak) productCell *collectionSelectedProduct;
+
+- (IBAction)editButton:(id)sender;
 
 @end
 

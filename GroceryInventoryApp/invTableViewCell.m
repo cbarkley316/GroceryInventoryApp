@@ -15,7 +15,7 @@
 
 @implementation invTableViewCell
 
-@synthesize sectionLbl, invTableCollectionView, editTableCollectionView, model, editViewController, collCell, sectionProducts;
+@synthesize sectionLbl, invViewController, invTableCollectionView, model, collCell, sectionProducts;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -56,13 +56,11 @@
     productCell *selectedProduct = [sectionProducts objectAtIndex:indexPath.row];
 //    NSString *selectedProductName = selectedProduct.productName;
 //    NSLog(@"%@ tapped", selectedProductName);
-    if (collectionView == invTableCollectionView){
+    if (model.invEditWasPushed){
+        
+    } else {
         selectedProduct.amountNeeded += 1;
         [collectionView reloadData];
-    }
-    if (collectionView == editTableCollectionView){
-        [editViewController setCollectionSelectedProduct:selectedProduct];
-        [editViewController performSegueWithIdentifier:@"editToEditProduct" sender:self];
     }
 }
 

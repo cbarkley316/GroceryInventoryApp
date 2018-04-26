@@ -11,7 +11,7 @@
 #import "invViewController.h"
 
 @implementation Model
-@synthesize homeSections, storeSections, productList;
+@synthesize invEditWasPushed, homeSections, storeSections, productList;
 
 - (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection{
     //NSLog(@"Creating product");
