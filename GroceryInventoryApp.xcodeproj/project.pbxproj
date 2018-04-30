@@ -20,9 +20,13 @@
 		C1A17C16206BDB4E005BAF1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C15206BDB4E005BAF1B /* main.m */; };
 		C1A17C20206BDB4E005BAF1B /* GroceryInventoryAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C1F206BDB4E005BAF1B /* GroceryInventoryAppTests.m */; };
 		C1A17C2B206BDB4E005BAF1B /* GroceryInventoryAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A17C2A206BDB4E005BAF1B /* GroceryInventoryAppUITests.m */; };
+		C1A8DCDB2094053300836CC7 /* addStoreSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A8DCDA2094053300836CC7 /* addStoreSectionViewController.m */; };
 		C1B81048207F377E00189C3A /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B81047207F377E00189C3A /* Model.m */; };
 		C1C20918208EB2E200709C62 /* addHomeSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C20917208EB2E200709C62 /* addHomeSectionViewController.m */; };
 		C1D30C68208FE29200662043 /* editProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D30C67208FE29200662043 /* editProductViewController.m */; };
+		C1DDBEE52092C1C40008C2BB /* shoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DDBEE42092C1C40008C2BB /* shoppingViewController.m */; };
+		C1DDBEE82092C3110008C2BB /* shopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DDBEE72092C3110008C2BB /* shopTableViewCell.m */; };
+		C1DDBEED2092C7DD0008C2BB /* ShoppingCart.png in Resources */ = {isa = PBXBuildFile; fileRef = C1DDBEEC2092C7DD0008C2BB /* ShoppingCart.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,12 +71,19 @@
 		C1A17C26206BDB4E005BAF1B /* GroceryInventoryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryInventoryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A17C2A206BDB4E005BAF1B /* GroceryInventoryAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroceryInventoryAppUITests.m; sourceTree = "<group>"; };
 		C1A17C2C206BDB4E005BAF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1A8DCD92094053300836CC7 /* addStoreSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = addStoreSectionViewController.h; sourceTree = "<group>"; };
+		C1A8DCDA2094053300836CC7 /* addStoreSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = addStoreSectionViewController.m; sourceTree = "<group>"; };
 		C1B81046207F377E00189C3A /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		C1B81047207F377E00189C3A /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		C1C20916208EB2E200709C62 /* addHomeSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = addHomeSectionViewController.h; sourceTree = "<group>"; };
 		C1C20917208EB2E200709C62 /* addHomeSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = addHomeSectionViewController.m; sourceTree = "<group>"; };
 		C1D30C66208FE29200662043 /* editProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = editProductViewController.h; sourceTree = "<group>"; };
 		C1D30C67208FE29200662043 /* editProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = editProductViewController.m; sourceTree = "<group>"; };
+		C1DDBEE32092C1C40008C2BB /* shoppingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shoppingViewController.h; sourceTree = "<group>"; };
+		C1DDBEE42092C1C40008C2BB /* shoppingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shoppingViewController.m; sourceTree = "<group>"; };
+		C1DDBEE62092C3110008C2BB /* shopTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shopTableViewCell.h; sourceTree = "<group>"; };
+		C1DDBEE72092C3110008C2BB /* shopTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shopTableViewCell.m; sourceTree = "<group>"; };
+		C1DDBEEC2092C7DD0008C2BB /* ShoppingCart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShoppingCart.png; path = Icons/ShoppingCart.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,14 +144,11 @@
 		C1A17C02206BDB4E005BAF1B /* GroceryInventoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				C1DDBEEC2092C7DD0008C2BB /* ShoppingCart.png */,
+				C1DDBEE02092B2720008C2BB /* Inventory Page */,
+				C1DDBEE22092B37F0008C2BB /* Shopping Page */,
 				C1A17C03206BDB4E005BAF1B /* AppDelegate.h */,
 				C1A17C04206BDB4E005BAF1B /* AppDelegate.m */,
-				C1A17C06206BDB4E005BAF1B /* invViewController.h */,
-				C1A17C07206BDB4E005BAF1B /* invViewController.m */,
-				C1231CBE20741709004B6A1D /* invTableViewCell.h */,
-				C1231CBF20741709004B6A1D /* invTableViewCell.m */,
-				C1231CC120743015004B6A1D /* productCell.h */,
-				C1231CC220743015004B6A1D /* productCell.m */,
 				C1A17C0F206BDB4E005BAF1B /* Assets.xcassets */,
 				C1A17C11206BDB4E005BAF1B /* LaunchScreen.storyboard */,
 				C1A17C14206BDB4E005BAF1B /* Info.plist */,
@@ -149,9 +157,6 @@
 				C1B81046207F377E00189C3A /* Model.h */,
 				C1B81047207F377E00189C3A /* Model.m */,
 				C1A17C09206BDB4E005BAF1B /* Main.storyboard */,
-				C13297EB207FF50700DA6E79 /* NewProduct */,
-				C1C20915208EB27300709C62 /* AddHomeSection */,
-				C1D30C65208FE24C00662043 /* Edit Product */,
 			);
 			path = GroceryInventoryApp;
 			sourceTree = "<group>";
@@ -174,6 +179,15 @@
 			path = GroceryInventoryAppUITests;
 			sourceTree = "<group>";
 		};
+		C1A8DCD82094050200836CC7 /* AddStoreSection */ = {
+			isa = PBXGroup;
+			children = (
+				C1A8DCD92094053300836CC7 /* addStoreSectionViewController.h */,
+				C1A8DCDA2094053300836CC7 /* addStoreSectionViewController.m */,
+			);
+			path = AddStoreSection;
+			sourceTree = "<group>";
+		};
 		C1C20915208EB27300709C62 /* AddHomeSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +204,43 @@
 				C1D30C67208FE29200662043 /* editProductViewController.m */,
 			);
 			path = "Edit Product";
+			sourceTree = "<group>";
+		};
+		C1DDBEE02092B2720008C2BB /* Inventory Page */ = {
+			isa = PBXGroup;
+			children = (
+				C1DDBEE12092B35C0008C2BB /* Inventory */,
+				C13297EB207FF50700DA6E79 /* NewProduct */,
+				C1C20915208EB27300709C62 /* AddHomeSection */,
+				C1D30C65208FE24C00662043 /* Edit Product */,
+			);
+			name = "Inventory Page";
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C1DDBEE12092B35C0008C2BB /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				C1A17C06206BDB4E005BAF1B /* invViewController.h */,
+				C1A17C07206BDB4E005BAF1B /* invViewController.m */,
+				C1231CBE20741709004B6A1D /* invTableViewCell.h */,
+				C1231CBF20741709004B6A1D /* invTableViewCell.m */,
+				C1231CC120743015004B6A1D /* productCell.h */,
+				C1231CC220743015004B6A1D /* productCell.m */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
+		C1DDBEE22092B37F0008C2BB /* Shopping Page */ = {
+			isa = PBXGroup;
+			children = (
+				C1DDBEE32092C1C40008C2BB /* shoppingViewController.h */,
+				C1DDBEE42092C1C40008C2BB /* shoppingViewController.m */,
+				C1DDBEE62092C3110008C2BB /* shopTableViewCell.h */,
+				C1DDBEE72092C3110008C2BB /* shopTableViewCell.m */,
+				C1A8DCD82094050200836CC7 /* AddStoreSection */,
+			);
+			path = "Shopping Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +351,7 @@
 			files = (
 				C120E705208940ED0027F844 /* ProjectLog2.txt in Resources */,
 				C1A17C13206BDB4E005BAF1B /* LaunchScreen.storyboard in Resources */,
+				C1DDBEED2092C7DD0008C2BB /* ShoppingCart.png in Resources */,
 				C1A17C10206BDB4E005BAF1B /* Assets.xcassets in Resources */,
 				C1A17C0B206BDB4E005BAF1B /* Main.storyboard in Resources */,
 			);
@@ -331,11 +383,14 @@
 				C13297EA207FEE5100DA6E79 /* newProductVC.m in Sources */,
 				C1A17C16206BDB4E005BAF1B /* main.m in Sources */,
 				C1D30C68208FE29200662043 /* editProductViewController.m in Sources */,
+				C1DDBEE52092C1C40008C2BB /* shoppingViewController.m in Sources */,
 				C1231CC320743015004B6A1D /* productCell.m in Sources */,
 				C1B81048207F377E00189C3A /* Model.m in Sources */,
 				C1C20918208EB2E200709C62 /* addHomeSectionViewController.m in Sources */,
+				C1A8DCDB2094053300836CC7 /* addStoreSectionViewController.m in Sources */,
 				C1A17C0E206BDB4E005BAF1B /* GroceryInventoryApp.xcdatamodeld in Sources */,
 				C1231CC020741709004B6A1D /* invTableViewCell.m in Sources */,
+				C1DDBEE82092C3110008C2BB /* shopTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RCM8D8WBAS;
 				INFOPLIST_FILE = GroceryInventoryApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Camden-Audio.GroceryInventoryApp";
@@ -512,6 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RCM8D8WBAS;
 				INFOPLIST_FILE = GroceryInventoryApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Camden-Audio.GroceryInventoryApp";

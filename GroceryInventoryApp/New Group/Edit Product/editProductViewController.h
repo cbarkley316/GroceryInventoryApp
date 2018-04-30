@@ -10,7 +10,7 @@
 @class productCell;
 @class Model;
 
-@interface editProductViewController : UIViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface editProductViewController : UIViewController <UITextFieldDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak) productCell *selectedProduct;
 @property (weak) Model *model;
@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *homeSectionLbl;
 @property (strong, nonatomic) IBOutlet UILabel *storeSectionLbl;
 @property (strong, nonatomic) IBOutlet UITextField *productNameField;
+@property (strong, nonatomic) IBOutlet UITextField *amountNeededField;
 @property (strong, nonatomic) IBOutlet UIPickerView *homeSectionPickerview;
 @property (strong, nonatomic) IBOutlet UIPickerView *storeSectionPickerview;
 - (IBAction)saveButton:(id)sender;

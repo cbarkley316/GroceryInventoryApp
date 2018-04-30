@@ -16,7 +16,7 @@
 @property (strong) NSMutableArray *storeSections;
 @property (strong) NSMutableArray *productList;
 
-- (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection;
+- (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection amountNeeded:(NSInteger)amountNeeded;
 - (void)addHomeSection:(NSString *)sectionName;
 - (void)addStoreSection:(NSString *)sectionName;
 

@@ -154,6 +154,40 @@ contonue
 4:36    - I'm gonna try changed the identifier for the tableViewCell in the edit page. Nvmnd.
 9:27    - Let's try simply rebuilding the sorting system for the edit page
 9:59    - I'm thinking I want to redesign the edit page. How about we have an edit button on the inventory page that, when pressed, a) makes it so that when you tap a product you go to the editProduct page b) changes the "createProduct" button to the "addSection" button c) changes some uicolor stuff to signify change in function. That would invovle adding a BOOL variable that only be true when the button is pressed.
+10:40   - Got a) mostly, still need it to reset button BOOL when done.
+
+11:00   - To do. For Edit functionality: 1) make "create product" button text (and functionality) switch to add section 2) add UIColor to signify edit mode.
+    For edit Product: add amount needed field with numberpad keyboard.
+11:22   - Addsection button crashes
+
+4/26
+10:18   - Everything is working great, just make the "Add Product" button switches to "Add Section" when the edit button is pushed.
+10:37   - Done. Now I need to add a field to change "amountNeeded" variable in editProduct Page
+10:59   - Amount needed is being changed when I press enter but still 2 things need to be done with it: 1) Make it so I dont need to press enter 2) When the view appears display the current amount needed.
+11:05   - done. Now just add some UIColor element (or something else) to signify "edit mode".
+2:40    - All that's left for the inventory page (that I know of) is the UI coloring for the edit mode. Let's test changing the tableview background. Should probably change the two button colors too.
+4:49    - Lets start on the shopping page
+4/27
+5:06    - Got all the outlets into the shoppingViewController.h file. Now I continue to rebuild the table-collection system
+6:21    - In copying shopVC from invVC I got through the segue method. I first need to create a "addStoreSectionViewController" class. Then I'll get back to copying.
+6:31    - Created new class and VC in IB but haven't coded it yet. Back to copying.
+6:35    - Ok, ive hit a problem. I wanted to have a different productCell class (shopProductcell) in order to make the amountNeeded go down instead of up when tapped. Turns out the "selectedProduct" that is passed to the productEditVC is expecting only a productCell. Solutions: 1) We create a new producteditor that accepts shopProductCells 2) We make the producteditor accept shopProductCells 3) We simply use productCells and use an "if" statement somewhere to tell amountNeeded to go up instead of down. Actually we have to use (3) because all products in model.productList need to be productCells.
+6:47    - Use productCells
+7:01    - shopVC copied. Has many errors because tableViewCell hasn;t been filled in. On to tableViewCell
+9:50    - Now i need to consturct the add homesection.
+10:08   - Current problems with shopping pagez: 1) The add section button lead me to new product 2) I need a default "Store" section. Starting with 1
+10:21   - Still happening
+
+4/28
+10:57   - I dont think model is being passed through the invToShop segue.
+2:16    - Ok, segue is being called and model is being passed and store is showing up. Now I need to add products from inventory page. My first goal is to get all the products to show up.
+3:45    - Whenever a productCell needs to be displayed in the shopping page it crashes.
+3:53    - Fixed. Now I need to make the cells in shopping page only show up if the amount needed is greater than 0
+3:58    - Done. Later we'll need to make it so that if "sectionProducts" array is empty the tableViewCell doens't show up. Or at least the section label doesn't show up. For now, lets work on the buttons starting with shopping's add product button. When you get there and click save it takes you back to the rootcontroller. I need to pass to it which VC we're coming from. I'll do that by adding another iVar called "fromVC" and store iguess a navigation controller variable?
+4:14    - Done. Fixed it by simply calling "popViewControllerAnimated" when the user taps "save" in newProductVC. This simply pops the top viewctroller off the navigation controller stack. Now I need to fix a UX issue. When the user adds a product in the shopping page they don't see it get added to the page because it has 0 for the amount needed. Tofix this i think i need to add an "amount Needed" field in the createProductVC.
+4:38    - Done. Now I need to make the shopping Add Section button works.
+4:49    - Done. Todo: 1) Add editProduct functionality in shopping page. 2) edit button turns into "inventory" instead of "shop" in shopping page. 3) Need to get rid of section names that aren't being used. I'll start with 1.
+5:42    -The app works!!! ToDo 1)I need to learn how to save 2) add button in create and edit product that leads to addsections pages 2) Find way to rearrange order of sections
 
 
 
@@ -161,6 +195,3 @@ contonue
 
 
 
-=======
-	2:30 -	Continuing tests on github. THis entry was made on github.
->>>>>>> c56689af1bcbfce82aa7c85757e1af3e4c98202b

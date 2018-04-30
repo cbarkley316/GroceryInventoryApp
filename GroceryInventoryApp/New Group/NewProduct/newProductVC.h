@@ -15,11 +15,13 @@
 @property (strong, nonatomic) NSString *productName;
 @property (strong, nonatomic) NSString *homeSection;
 @property (strong, nonatomic) NSString *storeSection;
+@property NSInteger amountNeeded;
 @property (weak) Model *model;
 @property (strong) newProductTableCell *productTableCell;
 @property (strong, nonatomic) IBOutlet UIPickerView *homeSectionPickerview;
 @property (strong, nonatomic) IBOutlet UIPickerView *storeSectionPickerview;
 @property (strong, nonatomic) IBOutlet UITextField *productNameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *amountNeededField;
 
 - (IBAction)createProductButton:(id)sender;
 

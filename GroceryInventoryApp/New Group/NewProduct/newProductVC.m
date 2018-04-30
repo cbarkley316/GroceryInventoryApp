@@ -15,7 +15,7 @@
 
 @implementation newProductVC
 
-@synthesize productTableCell, model, productName, homeSection, storeSection, homeSectionPickerview, storeSectionPickerview, productNameTextField;
+@synthesize productTableCell, model, productName, homeSection, storeSection, amountNeeded, homeSectionPickerview, storeSectionPickerview, productNameTextField, amountNeededField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,19 +26,21 @@
 
 - (IBAction)createProductButton:(id)sender {
     [self setProductName:productNameTextField.text];
+    [self setAmountNeeded:[amountNeededField.text integerValue]];
     //NSLog(@"\nProductName:%@\nhomeSection:%@\nstoreSection:%@", productName, homeSection, storeSection);
     [model createProduct:productName
              homeSection:homeSection
-            storeSection:storeSection];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+            storeSection:storeSection
+            amountNeeded:amountNeeded];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 
 #pragma mark - Text Field stuff
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self setProductName:textField.text];
+    [self setAmountNeeded:[amountNeededField.text integerValue]];
     [textField resignFirstResponder];
     return YES;
 }

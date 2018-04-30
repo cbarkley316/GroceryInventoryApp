@@ -13,7 +13,7 @@
 @implementation Model
 @synthesize invEditWasPushed, homeSections, storeSections, productList;
 
-- (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection{
+- (void)createProduct:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection amountNeeded:(NSInteger)amountNeeded{
     //NSLog(@"Creating product");
     if (productList == nil){
         NSMutableArray *pl = [[NSMutableArray alloc] init];
@@ -32,6 +32,7 @@
     [p setProductName:productName];
     [p setHomeSection:homeSection];
     [p setStoreSection:storeSection];
+    [p setAmountNeeded:amountNeeded];
     [productList addObject:p];
 }
 

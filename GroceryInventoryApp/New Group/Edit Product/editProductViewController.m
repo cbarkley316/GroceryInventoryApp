@@ -16,7 +16,7 @@
 
 @implementation editProductViewController
 
-@synthesize selectedProduct, model, productNameLbl, homeSectionLbl, storeSectionLbl, productNameField, homeSectionPickerview, storeSectionPickerview;
+@synthesize selectedProduct, model, productNameLbl, homeSectionLbl, storeSectionLbl, productNameField, amountNeededField, homeSectionPickerview, storeSectionPickerview;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,12 +26,35 @@
 -(void)viewWillAppear:(BOOL)animated{
     productNameLbl.text = selectedProduct.productName;
     productNameField.text = selectedProduct.productName;
+    amountNeededField.text = [NSString stringWithFormat: @"%ld", (long)selectedProduct.amountNeeded];
     homeSectionLbl.text = selectedProduct.homeSection;
     storeSectionLbl.text = selectedProduct.storeSection;
 }
 
 - (IBAction)saveButton:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    ////Make whatever's in the productName texfield be the new product name
+    [selectedProduct setProductName:productNameField.text];
+    ////Make whatever's in the amountNeeded texfield be the new amount needed
+    NSInteger adjustedAmountNeeded = [amountNeededField.text integerValue];
+    NSLog(@"adjustedAmountNeeded: %ld", (long)adjustedAmountNeeded);
+    [selectedProduct setAmountNeeded:adjustedAmountNeeded];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Text Field stuff
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == productNameField){
+        [selectedProduct setProductName:textField.text];
+        productNameLbl.text = selectedProduct.productName;
+    } else if (textField == amountNeededField) {
+        NSInteger adjustedAmountNeeded = [textField.text integerValue];
+        NSLog(@"adjustedAmountNeeded: %ld", (long)adjustedAmountNeeded);
+        [selectedProduct setAmountNeeded:adjustedAmountNeeded];
+    }
+    [textField resignFirstResponder];
+    return YES;
+    
 }
 
 #pragma mark - PickerView stuff
