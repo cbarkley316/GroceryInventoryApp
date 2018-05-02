@@ -1,5 +1,5 @@
 # GroceryInventoryApp
-
+    (work in progress)
 You know how you go to the grocery store, you see soap, and you wonder if you need soap or if you have a full bottle of it under your sink at home? 
 
 Also, your shopping list says to get ketchup, so you go to the left side of the store to get ketchup. Next item is bananas, so you go to the right side of the store to get bananas. Next item is milk, which is on the left side of the store and you think "Golly! If I knew I'd be getting milk I would have picked it up after the ketchup!"
