@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface productCell : UICollectionViewCell
+@interface productCell : UICollectionViewCell ////<NSCoding>
 
 @property (strong, nonatomic) IBOutlet UILabel *productNameLbl;
 @property (strong, nonatomic) IBOutlet UILabel *amountNeededLbl;
@@ -19,5 +19,6 @@
 
 
 -(void)updateCollectionCell:(NSString *)product amountNeeded:(NSInteger)amountNeeded;
+//-(id)initWithProductName:(NSString *)productName homeSection:(NSString *)homeSection storeSection:(NSString *)storeSection amountNeeded:(NSInteger)amountNeeded;
 
 @end

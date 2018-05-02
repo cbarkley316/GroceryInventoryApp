@@ -188,6 +188,9 @@ contonue
 4:38    - Done. Now I need to make the shopping Add Section button works.
 4:49    - Done. Todo: 1) Add editProduct functionality in shopping page. 2) edit button turns into "inventory" instead of "shop" in shopping page. 3) Need to get rid of section names that aren't being used. I'll start with 1.
 5:42    -The app works!!! ToDo 1)I need to learn how to save 2) add button in create and edit product that leads to addsections pages 2) Find way to rearrange order of sections
+4/30
+1:31a   - To do
+
 
 
 

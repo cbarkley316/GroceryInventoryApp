@@ -53,6 +53,14 @@
     [storeSections addObject:sectionName];
 }
 
+////Work in progress
+//- (void)saveData{
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsPath = [paths objectAtIndex:0];
+//    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"appData.plist"];
+//}
+
+
 - (void)dealloc{
     NSLog(@"Model Dealocated");
 }
